@@ -2,6 +2,10 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'factory_girl'
+require 'authlogic/test_case'
+
+include Authlogic::TestCase
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -23,4 +27,9 @@ RSpec.configure do |config|
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+end
+
+# TBD - remove after 2.0.0.beta.21 is released
+def flunk(*args, &block)
+  assertion_delegate.flunk(*args, &block)
 end
