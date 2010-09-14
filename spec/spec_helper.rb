@@ -28,8 +28,3 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
-
-# TBD - remove after 2.0.0.beta.21 is released
-def flunk(*args, &block)
-  assertion_delegate.flunk(*args, &block)
-end

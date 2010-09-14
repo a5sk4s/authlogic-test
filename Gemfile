@@ -21,7 +21,7 @@ gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => '
 # gem 'authlogic', '~>2.1.6'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.0.0.beta.20'
+  gem 'rspec-rails', '>= 2.0.0.beta.22'
   gem 'cucumber-rails', '~> 0.3.2'
   gem 'factory_girl_rails', '~> 1.0'
   gem 'autotest', '~> 4.3.2'

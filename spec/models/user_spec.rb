@@ -21,5 +21,9 @@ describe User do
     Factory.build(:user_wo_matching_confirmation).should be_invalid
   end
 
+  it "should not succeed building a user without a strong password" do
+    Factory.build(:user_wo_strong_password).should be_invalid
+  end
+
   pending "add some more examples to #{__FILE__}"
 end

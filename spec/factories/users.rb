@@ -1,7 +1,7 @@
 Factory.define :valid_user, :class => User do |u|
   u.email "the.user@nowhere.com"
-  u.password "thepassword"
-  u.password_confirmation "thepassword"
+  u.password "dontf()lM3"
+  u.password_confirmation "dontf()lM3"
 end
 
 Factory.define :user_wo_email, :class => User do |u|
@@ -26,4 +26,10 @@ Factory.define :user_wo_matching_confirmation, :class => User do |u|
   u.email "the.user@nowhere.com"
   u.password "thepassword"
   u.password_confirmation "anotherpassword"
+end
+
+Factory.define :user_wo_strong_password, :class => User do |u|
+  u.email "the.user@nowhere.com"
+  u.password "thepassword"
+  u.password_confirmation "thepassword"
 end

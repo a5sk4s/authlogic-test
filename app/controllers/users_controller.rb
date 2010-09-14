@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_back_or_default(@user, :notice => 'Registration successful.') }
+        format.html { redirect_to(@user, :notice => 'Registration successful.') }
       else
         format.html { render :action => :new }
       end
