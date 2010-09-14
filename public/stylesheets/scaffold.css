@@ -1,0 +1,33 @@
+#score {
+	position:absolute;
+	width: 40px;
+	margin-left: 4px;
+	z-index: 10;
+}
+#score,#rating,#standards,#complexity {
+	font-weight: bold;
+	font-size: 75%;
+}
+#scorebar {
+	background-image: url(../images/bg_strength_gradient.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position:absolute;
+	width: 140px;
+	z-index: 0;
+}
+#scorebarBorder {
+	background: #333;
+	color: #222;
+	border: 1px #000 solid;
+	width: 140px;
+	height: 16px;
+	margin: 0 12px 0 0;
+	float: left;
+}
+#complexity {
+	position:absolute;
+  text-align: right;
+	width: 136px;
+	z-index: 10;
+}
