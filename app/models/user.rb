@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
     :format => { :with => /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*(\W|_))([\x20-\x7E])*$/, :message => 'must contain at least one upper-case, lower-case, digit and special character' },
     :if => :require_password?
   
+  def deliver_password_reset_instructions!
+    self.reset_perishable_token!
+    Notifier.password_reset_instructions(self).deliver
+  end
 end

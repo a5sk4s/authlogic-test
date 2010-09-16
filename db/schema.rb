@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913225741) do
+ActiveRecord::Schema.define(:version => 20100915210302) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(:version => 20100913225741) do
     t.string   "current_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "perishable_token",                  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
 end

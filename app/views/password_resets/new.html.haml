@@ -1,0 +1,17 @@
+%h1 Forgot Password
+
+%p Fill out the form below and instructions to reset your password will be emailed to you:
+
+= form_tag password_resets_path, :class => 'formtastic' do
+  = field_set_tag nil, :class => 'inputs' do
+    %ol
+      %li{ :class => 'string required', :id => 'email_input' }
+        = label_tag :email do
+          Email
+          %abbr{ :title => 'required' }>*
+        = text_field_tag :email, nil, :size => 50
+
+  = field_set_tag nil, :class => 'buttons' do
+    %ol
+      %li{ :class => 'commit' }
+        =submit_tag 'Reset password', :class => 'submit', :id => 'submit'
