@@ -38,9 +38,11 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to(@user, :notice => 'Registration successful.') }
+      if @user.save_without_session_maintenance
+        @user.deliver_activation_instructions!
+        format.html { redirect_to(root_url, :notice => 'Account created. Please check your e-mail for your account activation.') }
       else
+        @user.password_confirmation = nil
         format.html { render :action => :new }
       end
     end

@@ -9,4 +9,10 @@ class Notifier < ActionMailer::Base
     body          :edit_password_reset_url => edit_password_reset_url(user.perishable_token)
   end
 
+  def activation_instructions(user)
+    subject       "Activation Instructions"
+    recipients    user.email
+    sent_on       Time.now
+    body          :account_activation_url => activate_url(user.perishable_token)
+  end
 end
