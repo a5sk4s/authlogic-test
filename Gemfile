@@ -35,7 +35,9 @@ end
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19'
+# group :development, :test do
+#   gem 'ruby-debug19'
+# end
 
 # Bundle the extra gems:
 # gem 'bj'

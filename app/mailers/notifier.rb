@@ -3,16 +3,12 @@ class Notifier < ActionMailer::Base
   default :from => "The Notifier <noreply@nowhere.com>"
 
   def password_reset_instructions(user)
-    subject       "Password Reset Instructions"
-    recipients    user.email
-    sent_on       Time.now
-    body          :reset_url => reset_url(user.perishable_token)
+    @reset_url = reset_url(user.perishable_token)
+    mail(:to => user.email, :subject => "Password Reset Instructions")
   end
 
   def activation_instructions(user)
-    subject       "Activation Instructions"
-    recipients    user.email
-    sent_on       Time.now
-    body          :activation_url => activate_url(user.perishable_token)
+    @activation_url = activate_url(user.perishable_token)
+    mail(:to => user.email, :subject => "Activation Instructions")
   end
 end
