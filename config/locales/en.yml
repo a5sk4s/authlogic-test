@@ -3,3 +3,11 @@
 
 en:
   hello: "Hello world"
+  formtastic:
+    actions:
+      login: "Login"
+      user:
+        create: "Register"
+        update: "Save"
+        confirm: "Confirm"
+        reset: "Reset"

@@ -19,27 +19,27 @@ describe UsersController do
 
       describe "with valid params" do
         it "assigns a newly created user as @user" do
-          User.stub(:new).with({'these' => 'params'}) { mock_user(:save => true) }
+          User.stub(:new).with({'these' => 'params'}) { mock_user(:save_without_session_maintenance => true) }
           post :create, :user => {'these' => 'params'}
           assigns(:user).should be(mock_user)
         end
 
         it "redirects to the created user" do
-          User.stub(:new) { mock_user(:save => true) }
+          User.stub(:new) { mock_user(:save_without_session_maintenance => true) }
           post :create, :user => {}
-          response.should redirect_to(user_url(mock_user))
+          response.should redirect_to(root_url)
         end
       end
 
       describe "with invalid params" do
         it "assigns a newly created but unsaved user as @user" do
-          User.stub(:new).with({'these' => 'params'}) { mock_user(:save => false) }
+          User.stub(:new).with({'these' => 'params'}) { mock_user(:save_without_session_maintenance => false) }
           post :create, :user => {'these' => 'params'}
           assigns(:user).should be(mock_user)
         end
 
         it "re-renders the 'new' template" do
-          User.stub(:new) { mock_user(:save => false) }
+          User.stub(:new) { mock_user(:save_without_session_maintenance => false) }
           post :create, :user => {}
           response.should render_template("new")
         end
@@ -54,7 +54,7 @@ describe UsersController do
 
       it "redirects to the login page" do
         get :index
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
 
@@ -66,7 +66,7 @@ describe UsersController do
 
       it "redirects to the login page" do
         get :show, :id => "13"
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
 
@@ -78,7 +78,7 @@ describe UsersController do
 
       it "redirects to the login page" do
         get :edit, :id => "13"
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
 
@@ -90,7 +90,7 @@ describe UsersController do
 
       it "redirects to the login page" do
         put :update, :id => "13"
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
 
@@ -102,7 +102,7 @@ describe UsersController do
 
       it "redirects to the login page" do
         delete :destroy, :id => "13"
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
   end

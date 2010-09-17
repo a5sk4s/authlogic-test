@@ -28,9 +28,8 @@ class ActivationsController < ApplicationController
     def load_user_using_perishable_token
       @user = User.find_using_perishable_token(params[:activation_code], 24.hours)
       unless @user
-        flash[:notice] = "Your activation code has expired. Please sign up again."
         @user.delete if @user && !@user.active?
-        redirect_to new_account_url
+        redirect_to new_user_url, :notice => "Your activation code has expired. Please sign up again."
       end
     end
 end

@@ -28,7 +28,7 @@ class UserSessionsController < ApplicationController
     @user_session.destroy
 
     respond_to do |format|
-      format.html { redirect_back_or_default(new_user_session_url, :notice => 'Logout successful.') }
+      format.html { redirect_back_or_default(login_url, :notice => 'Logout successful.') }
     end
   end
 end

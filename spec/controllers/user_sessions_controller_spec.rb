@@ -60,7 +60,7 @@ describe UserSessionsController do
 
       it "redirects to the login page" do
         delete :destroy
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
   end
@@ -106,7 +106,7 @@ describe UserSessionsController do
       it "redirects to the login page" do
         UserSession.stub(:find) { mock_user_session }
         delete :destroy
-        response.should redirect_to(new_user_session_url)
+        response.should redirect_to(login_url)
       end
     end
   end

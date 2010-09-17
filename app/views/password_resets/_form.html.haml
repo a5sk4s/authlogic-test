@@ -5,7 +5,7 @@
     = f.input :password_confirmation, :label => 'Password confirmation'
 
   = f.buttons do
-    = f.commit_button
+    = f.commit_button :reset
 = javascript_include_tag 'pwd_meter'
 :javascript
   $(document).ready(function() {

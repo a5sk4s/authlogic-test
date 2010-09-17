@@ -26,17 +26,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # edit.html.haml
-    end
-  end
-
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save_without_session_maintenance
         @user.deliver_activation_instructions!
@@ -45,6 +36,14 @@ class UsersController < ApplicationController
         @user.password_confirmation = nil
         format.html { render :action => :new }
       end
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html # edit.html.haml
     end
   end
 

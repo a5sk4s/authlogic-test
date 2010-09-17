@@ -42,7 +42,7 @@ class PasswordResetsController < ApplicationController
     def load_user_using_perishable_token
       @user = User.find_using_perishable_token(params[:id])
       unless @user
-        redirect_to(new_password_reset_path, :notice => "We're sorry, we could not locate the account. Try copying and pasting the URL from your email into a browser or restart the reset password process.")
+        redirect_to(forgot_path, :notice => "We're sorry, we could not locate the account. Try copying and pasting the URL from your email into a browser or restart the reset password process.")
       end
     end
 end
