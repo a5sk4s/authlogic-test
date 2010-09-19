@@ -1,4 +1,4 @@
-class PasswordResetsController < ApplicationController
+class PasswordsController < ApplicationController
   before_filter :load_user_using_perishable_token, :only => [:edit, :update]
   before_filter :require_no_user
   
@@ -12,10 +12,10 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_email(params[:email])
     respond_to do |format|
       if @user
-        @user.deliver_password_reset_instructions!
+        @user.deliver_password_instructions!
         format.html { redirect_to(root_url, :notice => "Instructions to reset your password have been emailed to you. Please check your email.") }
       else
-        format.html { render :action => :new, :notice => "We're sorry, we could not locate a user with that email address." }
+        format.html { redirect_to(forgot_path, :notice => "We're sorry, we could not locate a user with that email address.")  }
       end
     end
   end

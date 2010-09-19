@@ -1,5 +1,6 @@
 %h1 Activation
 
 = semantic_form_for @user, :url => confirm_path(@user.id) do |f| 
+  = f.semantic_errors
   = f.buttons do
     = f.commit_button :confirm

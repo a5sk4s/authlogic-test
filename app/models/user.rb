@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
     save
   end
 
-  def deliver_password_reset_instructions!
+  def deliver_password_instructions!
     self.reset_perishable_token!
-    Notifier.password_reset_instructions(self).deliver
+    Notifier.password_instructions(self).deliver
   end
 
   def deliver_activation_instructions!
