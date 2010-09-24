@@ -13,5 +13,5 @@ AuthlogicExample::Application.routes.draw do
   match '/activate/:activation_code', :to => 'activations#edit', :as => :activate
   match '/confirm/:id', :to => 'activations#update', :as => :confirm
 
-  root :to => "user_sessions#new"
+  root :to => "users#current"
 end

@@ -15,7 +15,7 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_back_or_default(users_url, :notice => 'Login successful.') }
+        format.html { redirect_to(user_url(@user_session.record), :notice => 'Login successful.') }
       else
         format.html { render :action => :new }
       end
@@ -28,7 +28,7 @@ class UserSessionsController < ApplicationController
     @user_session.destroy
 
     respond_to do |format|
-      format.html { redirect_back_or_default(login_url, :notice => 'Logout successful.') }
+      format.html { redirect_to(login_url, :notice => 'Logout successful.') }
     end
   end
 end

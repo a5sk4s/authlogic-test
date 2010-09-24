@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:index, :show, :edit, :update, :destroy]
+  before_filter :require_user, :only => [:index, :show, :edit, :update, :destroy, :current]
 
   def index
     @users = User.all
@@ -10,11 +10,20 @@ class UsersController < ApplicationController
       format.xml  { render :xml => @users }
     end
   end
+
   def show
     @user = User.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.haml
+    end
+  end
+
+  def current
+    @user = current_user
+
+    respond_to do |format|
+      format.html { render :action => :show }
     end
   end
 

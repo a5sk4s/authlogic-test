@@ -16,9 +16,9 @@ end
 gem 'haml-rails', '~> 0.2'
 gem 'jquery-rails', '~> 0.1.2'
 gem 'formtastic', '~> 1.1.0'
-gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 # TBD - keep checking the official version of authlogic
-# gem 'authlogic', '~>2.1.6'
+# gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+gem 'authlogic', '~>2.1.6'
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.0.0.beta.22'
