@@ -14,18 +14,22 @@ group :production do
 end
 
 gem 'haml-rails', '~> 0.2'
-gem 'jquery-rails', '~> 0.1.2'
+gem 'jquery-rails', '~> 0.2'
 gem 'formtastic', '~> 1.1.0'
 # TBD - keep checking the official version of authlogic
 # gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+# gem 'authlogic', :path => '/Users/a5sk4s/Development/rails3final/authlogic_ak'
 gem 'authlogic', '~>2.1.6'
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.0.0.beta.22'
   gem 'cucumber-rails', '~> 0.3.2'
   gem 'factory_girl_rails', '~> 1.0'
-  gem 'autotest', '~> 4.3.2'
+  gem 'autotest', '~> 4.4'
+  gem 'capybara', '~> 0.3.9'
   gem 'webrat', '~> 0.7.2.beta.1'
+  gem 'spork', '>= 0.9.0.rc2'
+  gem 'email_spec', '~> 1.0.0'
 end
 
 # Use unicorn as the web server

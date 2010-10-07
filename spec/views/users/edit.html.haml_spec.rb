@@ -11,6 +11,7 @@ describe "users/edit.html.haml" do
     render
 
     rendered.should have_selector("form", :action => user_path(@user), :method => "post") do |form|
+      form.should have_selector("input", :type => "hidden", :name => "_method", :value => "put")
     end
   end
 end

@@ -13,7 +13,7 @@ class PasswordsController < ApplicationController
     respond_to do |format|
       if @user
         @user.deliver_password_instructions!
-        format.html { redirect_to(root_url, :notice => "Instructions to reset your password have been emailed to you. Please check your email.") }
+        format.html { redirect_to(forgot_path, :notice => "Instructions to reset your password have been emailed to you. Please check your email.") }
       else
         format.html { redirect_to(forgot_path, :notice => "We're sorry, we could not locate a user with that email address.")  }
       end

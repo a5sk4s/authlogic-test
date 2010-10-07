@@ -5,7 +5,7 @@ class ActivationsController < ApplicationController
   def edit
     if @user.active?
       flash[:notice] = "Your account is already active."
-      redirect_to(root_url) and return
+      redirect_to(login_url) and return
     end
   end
 
@@ -13,12 +13,12 @@ class ActivationsController < ApplicationController
     @user = User.find(params[:id])
     if @user.active?
       flash[:notice] = "Your account is already active."
-      redirect_to(root_url) and return
+      redirect_to(login_url) and return
     end
 
     if @user.activate!
       flash[:notice] = "Your account has been activated."
-      redirect_to root_url
+      redirect_to login_url
     else
       render :action => :new
     end

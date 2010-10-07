@@ -24,10 +24,10 @@ describe UsersController do
           assigns(:user).should be(mock_user)
         end
 
-        it "redirects to the created user" do
+        it "redirects to the registration page" do
           User.stub(:new) { mock_user(:save_without_session_maintenance => true) }
           post :create, :user => {}
-          response.should redirect_to(root_url)
+          response.should redirect_to(register_url)
         end
       end
 

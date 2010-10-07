@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save_without_session_maintenance
         @user.deliver_activation_instructions!
-        format.html { redirect_to(root_url, :notice => 'Account created. Please check your e-mail for your account activation.') }
+        format.html { redirect_to(register_url, :notice => 'Account created. Please check your e-mail for your account activation.') }
       else
         @user.password_confirmation = nil
         format.html { render :action => :new }

@@ -11,3 +11,7 @@ en:
         update: "Save"
         confirm: "Confirm"
         reset: "Reset"
+
+  authlogic:
+    error_messages:
+      no_authentication_details: "Credentials are not valid."
