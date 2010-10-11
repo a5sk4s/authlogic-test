@@ -19,7 +19,7 @@ Feature: User should be able to reset their password
     And I fill in "Password" with "S3cr3!"
     And I fill in "Password confirmation" with "S3cr3!"
     And I press "Reset"
-    Then I should see "Password updated"
+    Then I should see "Password updated."
     And I should see "bob@nowhere.com"
     
   Scenario: A user must have a valid token to reset their password

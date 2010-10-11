@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe "users/new.html.haml" do
   before(:each) do
-    assign(:user, stub_model(User,
-      :new_record? => true
-    ))
+    @user = assign(:user, stub_model(User).as_new_record)
   end
 
   it "renders new user form" do

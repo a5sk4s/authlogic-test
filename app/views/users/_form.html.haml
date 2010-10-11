@@ -1,9 +1,10 @@
 = semantic_form_for @user do |f| 
   = f.inputs do
     = f.input :email, :label => 'Email'
-    = f.input :password, :label => 'Password', :hint => "#{password_meter()} Please use at least one upper-case, lower-case, digit and special character.".html_safe
+    - req = @user.send(:require_password?)
+    = f.input :password, :label => 'Password', :hint => "#{password_meter()} Please use at least one upper-case, lower-case, digit and special character.".html_safe, :required => req
     // = render :partial => 'password_meter'
-    = f.input :password_confirmation, :label => 'Password confirmation'
+    = f.input :password_confirmation, :label => 'Password confirmation', :required => req
 
   = f.buttons do
     = f.commit_button true

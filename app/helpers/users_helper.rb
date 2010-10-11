@@ -3,7 +3,7 @@ module UsersHelper
     html = render :partial => 'users/password_meter'
   end
 
-  def display(text)
-    @user == current_user ? text : truncate(text, :length => 7)
+  def display(user, text)
+    user == current_user ? text : truncate(text, :length => 7)
   end
 end

@@ -1,6 +1,6 @@
 %p
   %b Email:
-  = display(@user.email)
+  = display(@user, @user.email)
 
 %p
   %b Login count:
@@ -16,7 +16,7 @@
 
 %p
   %b Current login ip:
-  = display(@user.current_login_ip)
+  = display(@user, @user.current_login_ip)
 
 %p
   %b Failed login count:
@@ -28,7 +28,7 @@
 
 %p
   %b Last login ip:
-  = display(@user.last_login_ip)
+  = display(@user, @user.last_login_ip)
 
 = link_to 'Edit', edit_user_path(@user)
 \|

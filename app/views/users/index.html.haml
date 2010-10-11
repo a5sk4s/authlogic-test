@@ -9,7 +9,7 @@
 
   - @users.each do |user|
     %tr
-      %td= user.email
+      %td= display(user, user.email)
       %td= link_to 'Show', user
       // TBD - users should only have access to their own account at the controller level
       - if user == current_user

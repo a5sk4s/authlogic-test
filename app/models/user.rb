@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.logged_in_timeout = 2.minutes # default is 10.minutes
+    c.validate_email_field false
     c.validate_password_field false
   end
   
+  validates :email, 
+    :presence => true, 
+    :uniqueness => { :case_sensitive => false },
+    :length => { :within => 6..100 }, 
+    :format => { :with => Authlogic::Regex.email, :message => 'must contain a valid email' }
+
   validates :password, 
     :presence => true, 
     :confirmation => true, 

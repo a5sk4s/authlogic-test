@@ -22,7 +22,7 @@ gem 'formtastic', '~> 1.1.0'
 gem 'authlogic', '~>2.1.6'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.0.0.beta.22'
+  gem 'rspec-rails', '>= 2.0.0'
   gem 'cucumber-rails', '~> 0.3.2'
   gem 'factory_girl_rails', '~> 1.0'
   gem 'autotest', '~> 4.4'
