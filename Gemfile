@@ -16,6 +16,7 @@ end
 gem 'haml-rails', '~> 0.2'
 gem 'jquery-rails', '~> 0.2'
 gem 'formtastic', '~> 1.1.0'
+# gem 'formtastic', :path => '/Users/a5sk4s/Development/rails3final/formtastic_ak'
 # TBD - keep checking the official version of authlogic
 # gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 # gem 'authlogic', :path => '/Users/a5sk4s/Development/rails3final/authlogic_ak'
